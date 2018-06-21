@@ -4,12 +4,18 @@ class Old extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            cx: props.cx || Math.random()*800,/*width of game screen*/
-            cy: props.cy || Math.random()*600,/*height of game screen*/
+            cx: props.cx,/*width of game screen*/
+            cy: props.cy,/*height of game screen*/
             r: 120,
             fill: 'red'
         }
+        this.updatePos = this.updatePos.bind(this)
     }
+    
+    updatePos(x,y) {
+        this.setState({cx: x, cy: y})
+    }
+    
     render() {
         return (
             <React.Fragment>
