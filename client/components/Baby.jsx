@@ -10,10 +10,16 @@ class Baby extends React.Component {
             fill: 'blue'
         }
         this.updatePos = this.updatePos.bind(this)
+        this.getPos = this.getPos.bind(this)
     }
     
     updatePos(x,y) {
         this.setState({cx: x, cy: y})
+    }
+
+    getPos() {
+        const pos = this.state
+        return {cx: pos.cx, cy: pos.cy}
     }
 
     render() {

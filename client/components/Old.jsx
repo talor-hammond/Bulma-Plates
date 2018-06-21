@@ -10,12 +10,18 @@ class Old extends React.Component {
             fill: 'red'
         }
         this.updatePos = this.updatePos.bind(this)
+        this.getPos = this.getPos.bind(this)
     }
     
     updatePos(x,y) {
         this.setState({cx: x, cy: y})
     }
-    
+
+    getPos() {
+        const pos = this.state
+        return {cx: pos.cx, cy: pos.cy}
+    }
+
     render() {
         return (
             <React.Fragment>

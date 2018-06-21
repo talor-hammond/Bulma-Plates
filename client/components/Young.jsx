@@ -10,10 +10,16 @@ class Young extends React.Component {
             fill: 'yellow'
         }
         this.updatePos = this.updatePos.bind(this)
+        this.getPos = this.getPos.bind(this)
     }
     
     updatePos(x,y) {
         this.setState({cx: x, cy: y})
+    }
+
+    getPos() {
+        const pos = this.state
+        return {cx: pos.cx, cy: pos.cy}
     }
 
     render() {
