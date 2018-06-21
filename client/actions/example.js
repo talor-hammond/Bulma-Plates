@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-//Below are an example of both an action creator and an async request
+//Below is an example of both an action creator and an async request
 
 
 //action:
