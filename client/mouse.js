@@ -57,7 +57,6 @@ function processCollision(obj1, obj2) {
 // console.log(processCollision(obj1, obj2))
 
 module.exports = {
-    checkMouse,
     mouseTransform,
     checkForCollision,
     processCollision,
