@@ -56,8 +56,6 @@ class Game extends React.Component {
     return newObjs
   }
 
- 
-
   render() {
     const gameWindow = {
       width: this.props.width,
