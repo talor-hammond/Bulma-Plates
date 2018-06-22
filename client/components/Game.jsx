@@ -22,13 +22,8 @@ class Game extends React.Component {
     let old = this.state.old    
     old[0].cx = svgCoords.x
     old[0].cy = svgCoords.y
-    console.log(svgCoords);
-    console.log(old)
-    
     this.setState({old})
   }
-
- 
 
   render() {
     const gameWindow = {
