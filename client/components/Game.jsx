@@ -32,13 +32,14 @@ class Game extends React.Component {
   reactMouse(x, y){
     let {old, young, babies} = this.state
     for (let i=0; i < old.length; i++){
-      if (mouse.checkMouseDistance(old[i],x,y) < 150) Object.assign(old[i],  mouse.moveFromMouse(old[i]))
+      //console.log(old[i], x,y)
+      if (mouse.checkMouseDistance(old[i],x,y) < 500) mouse.moveFromMouse(old[i],x,y)
     }
     for (let i=0; i < young.length; i++){
-      if (mouse.checkMouseDistance(young[i],x,y) < 110) Object.assign(young[i], mouse.moveFromMouse(young[i]))
+      if (mouse.checkMouseDistance(young[i],x,y) < 400) mouse.moveFromMouse(young[i],x,y)
     }
     for (let i=0; i < babies.length; i++){
-      if (mouse.checkMouseDistance(babies[i],x,y) <80) Object.assign(babies[i], mouse.moveFromMouse(babies[i]))
+      if (mouse.checkMouseDistance(babies[i],x,y) <300) mouse.moveFromMouse(babies[i],x,y)
     }
     this.setState({old, young, babies})
   }
