@@ -2,6 +2,11 @@ import React from 'react'
 import Old from './Old'
 import mouse from '../mouse'
 
+const oldPics = [
+  '/images/old/dafoe.jpg',
+  '/images/old/trump.jpg'
+]
+
 class Game extends React.Component {
   constructor(props) {
     super(props)
