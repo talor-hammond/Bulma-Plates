@@ -23,6 +23,8 @@ function moveFromMouse(obj, mx, my) {
     let newX = obj.cx + strength*(relativeX/hypot)
     let newY = obj.cy + strength*(relativeY/hypot)
 
+    console.log({newX, newY});
+    
     return {cx: newX, cy: newY}
 }
 
@@ -42,23 +44,6 @@ function processCollision(obj1, obj2) {
     
     return newObj
 }
-
-let obj1 = {
-    cx: 200,
-    cy: 200,
-    r: 50
-}
-
-moveFromMouse(obj1, )
-
-
-// let obj2 = {
-//     cx: 200,
-//     cy: 299,
-//     r: 50
-// }
-
-// console.log(processCollision(obj1, obj2))
 
 module.exports = {
     mouseTransform,
