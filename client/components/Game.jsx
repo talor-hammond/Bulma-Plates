@@ -7,18 +7,28 @@ const oldPics = [
   '/images/old/trump.jpg'
 ]
 
+const youngPics = [
+  'images/young/ardern.jpeg',
+  'images/young/bieber.jpeg',
+  'images/young/gayford.jpeg',
+]
+
+const babyPics = [
+  'images/baby/baby.jpeg'
+]
+
 class Game extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       old: [ 
-        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
-        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
-        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
-        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
-        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
-        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'}
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red', image: oldPics[0]},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red', image: oldPics[0]},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red', image: oldPics[0]},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red', image: oldPics[1]},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red', image: oldPics[1]},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red', image: oldPics[1]}
       ],
       young: [],
       babies: []
@@ -57,7 +67,8 @@ class Game extends React.Component {
     let newObjs = this.iteratePairs(old)
     newObjs.forEach(element => {
       element.r = 40
-      element.fill = 'yellow'      
+      element.fill = 'yellow' 
+      element.image = youngPics[Math.floor(Math.random()*youngPics.length)]     
     });
     return newObjs
   }
@@ -66,7 +77,8 @@ class Game extends React.Component {
     let newObjs = this.iteratePairs(young)
     newObjs.forEach(element => {
       element.r = 25
-      element.fill = 'pink'      
+      element.fill = 'pink'
+      element.image = babyPics[Math.floor(Math.random()*babyPics.length)]      
     });
     return newObjs
   }
