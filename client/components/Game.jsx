@@ -15,6 +15,8 @@ class Game extends React.Component {
       babies: [{cx: 400, cy: 300, r: 25, fill: 'pink'}]
     }
     this.move = this.move.bind(this)
+    this.oldCollisions = this.oldCollisions.bind(this)
+    this.youngCollisions = this.youngCollisions.bind(this)
   }
 
   move(evt){
@@ -22,13 +24,13 @@ class Game extends React.Component {
     let {old, young, babies} = this.state    
     old[0].cx = svgCoords.x
     old[0].cy = svgCoords.y 
-    young.concat(this.oldCollisions(old))
-    babies.concat(this.youngCollisions(young))
+    young = young.concat(this.oldCollisions(old))
+    babies = babies.concat(this.youngCollisions(young))
     this.setState({old, young, babies})
   }
 
   oldCollisions(old){
-    let newObjs = iteratePairs(old)
+    let newObjs = this.iteratePairs(old)
     newObjs.forEach(element => {
       element.r = 40
       element.fill = 'yellow'      
@@ -37,7 +39,7 @@ class Game extends React.Component {
   }
   
   youngCollisions(young){
-    let newObjs = iteratePairs(young)
+    let newObjs = this.iteratePairs(young)
     newObjs.forEach(element => {
       element.r = 25
       element.fill = 'pink'      
@@ -50,9 +52,9 @@ class Game extends React.Component {
     let newObjs = []
     for (let i = 0; i < arr.length-1; i++){
       for(let j = i+1; j < arr.length; j++){
-        if (mouse.checkForCollision(arr[i], arr[j]) && Math.random() > 0.99) newObj.push(mouse.processCollision(arr[i], arr[j]))
+        if (mouse.checkForCollision(arr[i], arr[j]) && Math.random() > 0.99) newObjs.push(mouse.processCollision(arr[i], arr[j]))
       }
-    }
+    }    
     return newObjs
   }
 
