@@ -4,10 +4,8 @@ class Old extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            cx: props.cx,/*width of game screen*/
-            cy: props.cy,/*height of game screen*/
             r: 120,
-            fill: 'red'
+            fill: 'red' 
         }
         this.updatePos = this.updatePos.bind(this)
         this.getPos = this.getPos.bind(this)
@@ -23,10 +21,12 @@ class Old extends React.Component {
     }
 
     render() {
+        console.log(this.state)
         return (
-            <React.Fragment>
-                <circle style={{fill: (this.state.fill)}} cx={this.state.cx} cy={this.state.cy} r={this.state.r}  />
-            </React.Fragment>
+        <g>
+            <circle style={{fill: (this.state.fill)}} cx={this.props.cx} cy={this.props.cy} r={this.state.r}  />
+        </g>
+       
         )
     }
 }

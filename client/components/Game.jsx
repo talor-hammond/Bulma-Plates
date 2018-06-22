@@ -1,10 +1,22 @@
 import React from 'react'
+import Old from './Old'
 
 class Game extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state
+    this.state = {
+      celebs: [ 
+        {
+          cx: 200, cy: 200
+        }
+      ]
+    }
+    this.move = this.move.bind(this)
+  }
+
+  move(e){
+    console.log('click')
   }
 
   render() {
@@ -15,8 +27,14 @@ class Game extends React.Component {
 
     console.log(gameWindow);
     console.log(window);
-    
-    return <div>hello</div>
+
+    {/* {this.state.celebs.map(celeb => celeb)} */ }
+
+    return (
+      <svg onClick={this.move} width={gameWindow.width} height={gameWindow.height}>
+        {this.state.celebs.map(celeb => <Old {...celeb} />)}
+      </svg>
+    )
   }
 }
 
