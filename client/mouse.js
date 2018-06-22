@@ -9,15 +9,16 @@ function checkMouseDistance(obj, mx, my) {
     let relativeY = obj.cy - my
     let hypot = Math.sqrt(Math.pow(relativeX, 2) + Math.pow(relativeY, 2))
 
-    return hypot
+    return hypot - obj.r
 }
 
 function moveFromMouse(obj, mx, my) {
     let relativeX = obj.cx - mx
     let relativeY = obj.cy - my
-    let hypot = checkMouseDistance(obj, mx, my)
+    let hypot = checkMouseDistance(obj, mx, my) + obj.r
 
-    let strength = 1/Math.pow(hypot, 2)
+    // let strength = 1/Math.pow(hypot, 2)
+    strength = 1
 
     let newX = obj.cx + strength*(relativeX/hypot)
     let newY = obj.cy + strength*(relativeY/hypot)
@@ -42,11 +43,14 @@ function processCollision(obj1, obj2) {
     return newObj
 }
 
-// let obj1 = {
-//     cx: 200,
-//     cy: 200,
-//     r: 50
-// }
+let obj1 = {
+    cx: 200,
+    cy: 200,
+    r: 50
+}
+
+moveFromMouse(obj1, )
+
 
 // let obj2 = {
 //     cx: 200,
