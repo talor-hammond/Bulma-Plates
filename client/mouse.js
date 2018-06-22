@@ -1,7 +1,7 @@
 function checkMouse(obj, mx, my) {
     let relativeX = obj.cx - mx
     let relativeY = obj.cy - my
-    return {relativeX, relativeY}
+    return { relativeX, relativeY }
 }
 
 function mouseTransform(x, y) {
@@ -20,6 +20,17 @@ function checkForCollision(obj1, obj2) {
 
 }
 
+function processCollision(obj1, obj2) {
+    
+    let Xdistance = (obj1.cx + obj2.cx) / 2
+    let Ydistance = (obj1.cy + obj2.cy) / 2
+    
+    let newObj = { cx: Xdistance, cy: Ydistance }
+    
+    return newObj
+    
+}
+
 // let obj1 = {
 //     cx: 200,
 //     cy: 200,
@@ -32,11 +43,11 @@ function checkForCollision(obj1, obj2) {
 //     r: 50
 // }
 
-// console.log(checkForCollision(obj1, obj2))
-
+// console.log(processCollision(obj1, obj2))
 
 module.exports = {
     checkMouse,
     mouseTransform,
-    checkForCollision
+    checkForCollision,
+    processCollision
 }
