@@ -17,15 +17,29 @@ class Game extends React.Component {
     this.move = this.move.bind(this)
     this.oldCollisions = this.oldCollisions.bind(this)
     this.youngCollisions = this.youngCollisions.bind(this)
+    this.reactMouse = this.reactMouse.bind(this)
   }
 
   move(evt){
     const svgCoords = mouse.mouseTransform(evt.clientX, evt.clientY)
     let {old, young, babies} = this.state    
-    old[0].cx = svgCoords.x
-    old[0].cy = svgCoords.y 
+    this.reactMouse(svgCoords.x, svgCoords.y)    
     young = young.concat(this.oldCollisions(old))
     babies = babies.concat(this.youngCollisions(young))
+    this.setState({old, young, babies})
+  }
+
+  reactMouse(x, y){
+    let {old, young, babies} = this.state
+    for (let i=0; i < old.length; i++){
+      if (mouse.checkMouseDistance(old[i],x,y) < 150) old[i] = mouse.moveFromMouse(old[i])
+    }
+    for (let i=0; i < young.length; i++){
+      if (mouse.checkMouseDistance(young[i],x,y) < 110) young[i] = mouse.moveFromMouse(young[i])
+    }
+    for (let i=0; i < babies.length; i++){
+      if (mouse.checkMouseDistance(babies[i],x,y) <80) babies[i] = mouse.moveFromMouse(babies[i])
+    }
     this.setState({old, young, babies})
   }
 
