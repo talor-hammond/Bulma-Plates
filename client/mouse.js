@@ -42,8 +42,8 @@ function checkForCollision(obj1, obj2) {
 }
 
 function processCollision(obj1, obj2) {
-    let Xdistance = ((obj1.cx + obj2.cx) / 2) + Math.random() * 200 - 100
-    let Ydistance = ((obj1.cy + obj2.cy) / 2) + Math.random() * 200 - 100
+    let Xdistance = ((obj1.cx + obj2.cx) / 2) + Math.random() * 225 - 110
+    let Ydistance = ((obj1.cy + obj2.cy) / 2) + Math.random() * 225 - 110
     
     let newObj = { cx: Xdistance, cy: Ydistance }
     

@@ -8,11 +8,15 @@ class Game extends React.Component {
 
     this.state = {
       old: [ 
-        {cx: 200, cy: 200, r: 60, fill: 'blue'},
-        {cx: 800, cy: 500, r: 60, fill: 'red'}
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'},
+        {cx: Math.random() * props.width, cy: Math.random() * props.height, r: 60, fill: 'red'}
       ],
-      young: [{cx: 700, cy: 200, r: 40, fill: 'yellow'}],
-      babies: [{cx: 400, cy: 300, r: 25, fill: 'pink'}]
+      young: [],
+      babies: []
     }
     this.move = this.move.bind(this)
     this.oldCollisions = this.oldCollisions.bind(this)
@@ -39,7 +43,7 @@ class Game extends React.Component {
       if (mouse.checkMouseDistance(young[i],x,y) < 400) mouse.moveFromMouse(young[i],x,y)
     }
     for (let i=0; i < babies.length; i++){
-      if (mouse.checkMouseDistance(babies[i],x,y) <300) mouse.moveFromMouse(babies[i],x,y)
+      if (mouse.checkMouseDistance(babies[i],x,y) < 300) mouse.moveFromMouse(babies[i],x,y)
     }
     this.setState({old, young, babies})
   }
